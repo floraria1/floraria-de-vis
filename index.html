@@ -1,0 +1,549 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Florăria de Vis 🌷</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fff9f8;
+  color: #604752;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+
+header {
+  background: #f7e2e8;
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 3px 15px #0000000d;
+}
+
+.logo {
+  font-size: 27px;
+  color: #a75e79;
+  font-weight: bold;
+  animation: logoAppear 1s ease;
+}
+
+nav a {
+  text-decoration: none;
+  color: #654b55;
+  margin: 8px;
+  transition: .3s;
+  display: inline-block;
+}
+
+nav a:hover {
+  color: #d16d91;
+  transform: translateY(-3px);
+}
+
+/* HERO */
+
+.hero {
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+
+  background:
+  linear-gradient(#fff0f2d9,#fff0f2d9),
+  url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1600")
+  center/cover;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 7vw, 65px);
+  color: #a75e79;
+  margin-bottom: 20px;
+  animation: fadeDown 1.2s ease;
+}
+
+.hero p {
+  font-size: 19px;
+  margin-bottom: 18px;
+  animation: fadeUp 1.5s ease;
+}
+
+.hero .btn {
+  animation: fadeUp 2s ease;
+}
+
+/* FLORI PLUTITOARE */
+
+.floating {
+  position: absolute;
+  font-size: 30px;
+  opacity: .55;
+  pointer-events: none;
+  animation: float 5s ease-in-out infinite;
+}
+
+.flower1 { top: 15%; left: 8%; }
+.flower2 { top: 65%; left: 15%; animation-delay: 1s; }
+.flower3 { top: 20%; right: 10%; animation-delay: 2s; }
+.flower4 { bottom: 10%; right: 15%; animation-delay: 1.5s; }
+
+/* BUTOANE */
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(45deg,#b87590,#d99aae);
+  color: white;
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: .4s;
+  box-shadow: 0 5px 15px #b8759040;
+}
+
+.btn:hover {
+  transform: scale(1.09);
+  box-shadow: 0 8px 22px #b8759060;
+}
+
+/* SECTIUNI */
+
+section {
+  padding: 75px 8%;
+  text-align: center;
+}
+
+h2 {
+  color: #a75e79;
+  font-size: 34px;
+  margin-bottom: 30px;
+}
+
+.intro {
+  max-width: 750px;
+  margin: auto;
+  line-height: 1.9;
+  font-size: 17px;
+}
+
+/* PRODUSE */
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 28px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px #00000010;
+  padding-bottom: 25px;
+  transition: .4s;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 15px 30px #d99aae45;
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: .5s;
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+
+.card h3 {
+  margin: 18px;
+  color: #a75e79;
+  font-size: 22px;
+}
+
+.card p {
+  margin: 12px;
+}
+
+.price {
+  font-weight: bold;
+  color: #a75e79;
+  font-size: 21px;
+}
+
+/* DESPRE NOI */
+
+#despre {
+  background: #fff0f3;
+}
+
+/* COMANDA */
+
+.order {
+  background: #f8e9ec;
+}
+
+form {
+  max-width: 500px;
+  margin: auto;
+  display: grid;
+  gap: 15px;
+}
+
+input, textarea, select {
+  padding: 15px;
+  border: 1px solid #e4c4ce;
+  border-radius: 12px;
+  font-size: 15px;
+  background: white;
+  outline: none;
+  transition: .3s;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #b87590;
+  box-shadow: 0 0 10px #d99aae50;
+}
+
+textarea {
+  min-height: 110px;
+}
+
+/* FOOTER */
+
+footer {
+  background: #a75e79;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  line-height: 2;
+}
+
+footer h2 {
+  color: white;
+}
+
+/* ANIMATII */
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(15deg);
+  }
+}
+
+@keyframes logoAppear {
+  from {
+    opacity: 0;
+    transform: scale(.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* APARITIA SECTIUNILOR LA SCROLL */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* TELEFON */
+
+@media(max-width:600px) {
+  header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav a {
+    margin: 5px;
+    font-size: 14px;
+  }
+
+  .hero {
+    min-height: 430px;
+  }
+
+  section {
+    padding: 55px 6%;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🌷 Florăria de Vis</div>
+
+  <nav>
+    <a href="#acasa">Acasă</a>
+    <a href="#produse">Produse</a>
+    <a href="#despre">Despre noi</a>
+    <a href="#comanda">Comandă</a>
+  </nav>
+</header>
+
+<!-- PAGINA PRINCIPALA -->
+
+<div class="hero" id="acasa">
+
+  <span class="floating flower1">🌸</span>
+  <span class="floating flower2">🌷</span>
+  <span class="floating flower3">💗</span>
+  <span class="floating flower4">🌼</span>
+
+  <h1>Florăria de Vis</h1>
+
+  <p>Flori care păstrează frumusețea momentelor speciale.</p>
+
+  <p>Buchete handmade din sârmă plușată, create cu dragoste.</p>
+
+  <a href="#produse" class="btn">
+    Descoperă colecția 💐
+  </a>
+
+</div>
+
+<!-- DESPRE NOI -->
+
+<section id="despre" class="reveal">
+
+  <h2>Povestea noastră 🌸</h2>
+
+  <p class="intro">
+    Bine ai venit la Florăria de Vis!
+
+    Transformăm firele de sârmă plușată în flori
+    delicate, colorate și speciale.
+
+    Fiecare floare este realizată manual cu
+    răbdare, creativitate și multă dragoste.
+
+    Florile noastre sunt cadouri originale
+    care își păstrează frumusețea în timp.
+
+    Pentru că fiecare floare spune o poveste! 💗
+  </p>
+
+</section>
+
+<!-- PRODUSE -->
+
+
+<section id="produse" class="reveal">
+  <h2>Colecția noastră handmade 🌷</h2>
+  <p class="intro">
+    Flori pufoase, colorate și realizate manual
+    cu multă dragoste!
+  </p>
+  <br><br>
+
+  <div class="products">
+
+    <div class="card">
+      <img
+        src="https://elleblooming.com/cdn/shop/files/DIY_Kit_Sweet_Blossoms_1.png?v=1763539246&width=1500"
+        alt="Buchet de lalele și margarete din sârmă plușată">
+      <h3>Buchet de lalele</h3>
+      <p>Lalele roz și margarete delicate.</p>
+      <p class="price">45 lei</p>
+    </div>
+
+    <div class="card">
+      <img
+        src="https://afzaai.in/cdn/shop/files/44D7FC01-C94C-4EDC-AA52-9C3730B01E53.jpg?v=1770509203&width=1445"
+        alt="Trandafiri roz din sârmă plușată">
+      <h3>Trandafiri roz</h3>
+      <p>Un buchet romantic și special.</p>
+      <p class="price">15 lei / floare</p>
+    </div>
+
+    <div class="card">
+      <img
+        src="https://down-th.img.susercontent.com/file/th-11134207-7ras9-m8yvs6oullvte0"
+        alt="Floarea soarelui și lalele din sârmă plușată">
+      <h3>Buchet de vară</h3>
+      <p>Floarea-soarelui și lalele colorate.</p>
+      <p class="price">50 lei</p>
+    </div>
+
+    <div class="card">
+      <img
+        src="https://storage.googleapis.com/fastwork-static/e0bd14bb-ebd3-48fc-b32c-024db80b6c38.jpg"
+        alt="Trandafiri roșii din sârmă plușată">
+      <h3>Trandafiri roșii</h3>
+      <p>Flori handmade pentru persoanele dragi.</p>
+      <p class="price">18 lei / floare</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMENZI -->
+
+<section class="order reveal" id="comanda">
+
+  <h2>Comandă buchetul tău 💐</h2>
+
+  <p class="intro">
+    Alege florile preferate și noi vom crea
+    un buchet special pentru tine!
+  </p>
+
+  <br>
+
+  <form id="orderForm">
+
+    <input id="name" placeholder="Numele tău" required>
+
+    <input id="phone" placeholder="Număr de telefon" required>
+
+    <select id="product">
+      <option>Buchet de lalele</option>
+      <option>Trandafiri handmade</option>
+      <option>Floarea-soarelui</option>
+      <option>Margarete colorate</option>
+      <option>Buchet personalizat</option>
+    </select>
+
+    <textarea id="details"
+    placeholder="Ce culori și câte flori dorești?"></textarea>
+
+    <button class="btn" type="submit">
+      Trimite comanda 💗
+    </button>
+
+  </form>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <h2>Florăria de Vis 🌷</h2>
+
+  <p>Flori handmade, create cu dragoste.</p>
+
+  <p>Fiecare floare este o mică poveste! 💗</p>
+
+  <p>© 2026 Florăria de Vis. Toate drepturile rezervate.</p>
+
+</footer>
+
+<script>
+
+// ANIMATII LA SCROLL
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+}, {
+  threshold: 0.15
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+  observer.observe(element);
+});
+
+// COMANDA WHATSAPP
+
+document.getElementById("orderForm").addEventListener("submit", function(e) {
+
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const product = document.getElementById("product").value;
+  const details = document.getElementById("details").value;
+
+  // Introdu numarul tau WhatsApp fara + sau spatii
+  const whatsapp = "40766262958";
+
+  const message =
+    "Buna! Doresc sa fac o comanda la Floraria de Vis.%0A" +
+    "Nume: " + encodeURIComponent(name) + "%0A" +
+    "Telefon: " + encodeURIComponent(phone) + "%0A" +
+    "Produs: " + encodeURIComponent(product) + "%0A" +
+    "Detalii: " + encodeURIComponent(details);
+
+  window.open(
+    "https://wa.me/" + whatsapp + "?text=" + message,
+    "_blank"
+  );
+
+});
+
+</script>
+
+</body>
+</html>
